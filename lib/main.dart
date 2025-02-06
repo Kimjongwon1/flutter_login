@@ -11,42 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(title: "Flutter App"), // title 전달!
+      home: LoginScreen(), // 로그인 페이지를 홈 화면으로 설정!
     );
   }
 }
-class MyHomePage extends StatefulWidget {
-  final String title;
-  // required 키워드 추가!
-  const MyHomePage({super.key, required this.title});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => LoginScreen()),
-            );
-          },
-          child: Text("Go to Login"),
-        ),
-      ),
-    );
-  }
-}
-
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -75,6 +43,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   TextField(
+                    obscureText: true,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
